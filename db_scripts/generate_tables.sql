@@ -1,8 +1,7 @@
 
---DROP SCHEMA messenger CASCADE
+DROP SCHEMA IF EXISTS messenger CASCADE
 
 CREATE SCHEMA messenger;
-
 
 CREATE TABLE  messenger.user (
     user_id text PRIMARY KEY,
@@ -12,7 +11,6 @@ CREATE TABLE  messenger.user (
     last_update timestamp,
     insert_date timestamp
 );
-
 
 CREATE TABLE  messenger.image (
     image_id SERIAL PRIMARY KEY,
@@ -30,8 +28,6 @@ CREATE TABLE messenger.user_contacts (
     PRIMARY KEY (contact_id, user_id)
 );
 
-
-
 CREATE TABLE messenger.online_status_code (
     code_id SERIAL PRIMARY KEY,
     code text NOT NULL,
@@ -48,15 +44,12 @@ CREATE TABLE messenger.user_status (
     insert_time timestamp
 );
 
-
 CREATE TABLE  messenger.auth (
     auth_id SERIAL PRIMARY KEY,
     username text,
     pass_key text, 
     user_id text NOT NULL REFERENCES messenger.user (user_id)
 );
-
-
 
 CREATE TABLE  messenger.user_message (
     message_id SERIAL PRIMARY KEY,
@@ -67,8 +60,6 @@ CREATE TABLE  messenger.user_message (
     receiver_id text NOT NULL REFERENCES messenger.user (user_id), 
     recieved_time timestamp
 );
-
-
 
 CREATE TABLE messenger.notification_code (
     code_id SERIAL PRIMARY KEY,
