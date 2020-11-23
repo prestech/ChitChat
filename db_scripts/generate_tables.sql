@@ -80,10 +80,6 @@ CREATE TABLE  messenger.notification (
     content text
 );
 
-
-
-
-
 CREATE TABLE  messenger.group (
     group_id text PRIMARY KEY,
     group_name timestamp,
