@@ -1,0 +1,9 @@
+
+Deploy a docker postgres db: 
+    docker run  -p 5432:5432 --name chat_postgres -e POSTGRES_PASSWORD=changit -d postgres:latest
+
+Run the python server:
+    python3.7 manage.py runserver
+
+Display process ids associated with open ports (8000 in this case) 
+    lsof -i :8000
